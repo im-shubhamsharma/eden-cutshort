@@ -1,8 +1,11 @@
 import React from 'react'
+import logo from '../assets/Eden_logo.png'
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <div>
+        <img src={logo} alt="website logo" />
+    </div>
   )
 }
 

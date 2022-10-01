@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import {
+  Header,
+  Progress,
+  Welcome,
+  Workspace,
+  EdenUse,
+  Final,
+} from "./components";
+import GlobalStyles from "./components/styles/GlobalStyle";
+import { StyledContainer } from "./components/styles/Mixin";
+import { ThemeProvider } from "styled-components";
+import {theme} from "./components/styles/Theme"
+import { useState } from "react";
+import {Routes, Route} from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+   const [pages, setPages] = useState(1);
+
+   const changePages = () => {
+       setPages(prevPage =>  prevPage+1);
+   }
+
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <ThemeProvider theme={theme}>
+      <StyledContainer>
+        <GlobalStyles />
+        <Header />
+        <Progress />
+        <Routes>
+          <Route
+            path="/"
+            element={<Welcome changePages={changePages} pages={pages} />}
+          />
+          <Route
+            path="/workspace"
+            element={<Workspace changePages={changePages} pages={pages} />}
+          />
+        </Routes>
+      </StyledContainer>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
