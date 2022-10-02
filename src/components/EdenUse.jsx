@@ -10,6 +10,7 @@ import {
 } from "./styles/Mixin";
 import { Link } from "react-router-dom";
 
+// -------------------Option Component Start-----------------------------------
 const Option1 = ({ setOption, selected }) => {
   return (
     <StyledOption
@@ -44,7 +45,9 @@ const Option2 = ({ setOption, selected }) => {
     </StyledOption>
   );
 };
+// -------------------Option Component End-----------------------------------
 
+// -------------------EdenUse Component Start-----------------------------------
 const EdenUse = () => {
   const [option, setOption] = useState({
     option1: true,

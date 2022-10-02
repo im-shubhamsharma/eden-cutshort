@@ -3,7 +3,6 @@ import {
   StyledTitle,
   StyledSubTitle,
   StyledButton,
-  StyledForm,
   StyledContainer,
   StyledSubContainer,
 } from "./styles/Mixin";
