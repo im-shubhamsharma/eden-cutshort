@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { WorkspaceContainer } from "./styles/Workspace.style";
 import {
   StyledTitle,
   StyledSubTitle,
@@ -8,6 +7,8 @@ import {
   StyledLabel,
   StyledInput,
   StyledInputFixedText,
+  StyledContainer,
+  StyledSubContainer,
 } from "./styles/Mixin";
 import { Link } from "react-router-dom";
 
@@ -26,43 +27,47 @@ const Workspace = () => {
   };
 
   return (
-    <WorkspaceContainer>
+    <StyledContainer>
       <StyledTitle>Let's set up a home for all your work</StyledTitle>
       <StyledSubTitle>
         You can always create another workspace later.
       </StyledSubTitle>
 
-      <StyledForm>
-        <StyledLabel>
-          Workspace Name
-          <StyledInput
-            type="text"
-            name="name"
-            value={workspaceDetails.name}
-            placeholder="Eden"
-            onChange={handleChange}
-          />
-        </StyledLabel>
-
-        <StyledLabel>
-          Workspace URL (optional)
-          <StyledInputFixedText>
+      <StyledSubContainer>
+        <StyledForm>
+          <StyledLabel>
+            Workspace Name
             <StyledInput
               type="text"
-              name="url"
-              placeholder="Example"
-              value={workspaceDetails.url}
+              name="name"
+              value={workspaceDetails.name}
+              placeholder="Eden"
               onChange={handleChange}
-              before={true}
             />
-          </StyledInputFixedText>
-        </StyledLabel>
+          </StyledLabel>
 
-        <Link to="/workspace">
-          <StyledButton>Create Workspace</StyledButton>
-        </Link>
-      </StyledForm>
-    </WorkspaceContainer>
+          <StyledLabel>
+            <span>
+              Workspace URL <span id="optional">(optional)</span>
+            </span>
+            <StyledInputFixedText>
+              <StyledInput
+                type="text"
+                name="url"
+                placeholder="Example"
+                value={workspaceDetails.url}
+                onChange={handleChange}
+                before={true}
+              />
+            </StyledInputFixedText>
+          </StyledLabel>
+
+          <Link to="/use">
+            <StyledButton>Create Workspace</StyledButton>
+          </Link>
+        </StyledForm>
+      </StyledSubContainer>
+    </StyledContainer>
   );
 };
 

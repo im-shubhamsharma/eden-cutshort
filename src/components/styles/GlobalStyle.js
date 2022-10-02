@@ -19,30 +19,25 @@ html {
    scroll-behavior: smooth;
 }
 
-body {
+body #root {
     width: 100%;
+    height: 90vh;
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: 'Inter','San Francisco','SF Pro Text',-apple-system,system-ui,sans-serif;
-    color: ${({ theme }) => theme.textPrimaryColor}
+    color: ${({ theme }) => theme.textPrimaryColor};
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem; 
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
-
-${'' /* h1,
-h2,
-h3 {
-  font-weight: 500;
-  line-height: 1.1;
-  margin-top: 0;
-} */}
-
-${'' /* p {
-  margin: 0;
-} */}
 
 a,
 a:visited,
@@ -63,15 +58,3 @@ a:active {
 `;
 
 export default GlobalStyles;
-
-/*
-@media (max-width: 1080px) {
-      padding: 200px 100px;
-    }
-    @media (max-width: 768px) {
-      padding: 150px 50px;
-    }
-    @media (max-width: 480px) {
-      padding: 125px 25px;
-    }
-*/

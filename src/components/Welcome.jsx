@@ -1,15 +1,13 @@
 import { useState } from "react";
 import {
-  WelcomeContainer,
-  
-} from "./styles/Welcome.style";
-import {
   StyledTitle,
   StyledSubTitle,
   StyledButton,
   StyledForm,
   StyledLabel,
   StyledInput,
+  StyledContainer,
+  StyledSubContainer,
 } from "./styles/Mixin";
 import { Link } from "react-router-dom";
 
@@ -27,41 +25,41 @@ const Welcome = () => {
     }));
   }
 
-  console.log(name);
-
   return (
-    <WelcomeContainer>
+    <StyledContainer>
       <StyledTitle>Welcome! First things first...</StyledTitle>
       <StyledSubTitle>You can always change them later.</StyledSubTitle>
 
-      <StyledForm>
-        <StyledLabel>
-          Full Name
-          <StyledInput
-            type="text"
-            name="fullName"
-            value={name.fullName}
-            placeholder="Steve Jobs"
-            onChange={handleChange}
-          />
-        </StyledLabel>
+      <StyledSubContainer>
+        <StyledForm>
+          <StyledLabel>
+            Full Name
+            <StyledInput
+              type="text"
+              name="fullName"
+              value={name.fullName}
+              placeholder="Steve Jobs"
+              onChange={handleChange}
+            />
+          </StyledLabel>
 
-        <StyledLabel>
-          Display Name
-          <StyledInput
-            type="text"
-            name="displayName"
-            placeholder="Steve"
-            value={name.displayName}
-            onChange={handleChange}
-          />
-        </StyledLabel>
+          <StyledLabel>
+            Display Name
+            <StyledInput
+              type="text"
+              name="displayName"
+              placeholder="Steve"
+              value={name.displayName}
+              onChange={handleChange}
+            />
+          </StyledLabel>
 
-        <Link to="/workspace">
-          <StyledButton>Create Workspace</StyledButton>
-        </Link>
-      </StyledForm>
-    </WelcomeContainer>
+          <Link to="/workspace">
+            <StyledButton>Create Workspace</StyledButton>
+          </Link>
+        </StyledForm>
+      </StyledSubContainer>
+    </StyledContainer>
   );
 };
 
